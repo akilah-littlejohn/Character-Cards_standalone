@@ -1,0 +1,34 @@
+<section class="card-wrapper" *ngFor="let character of characterInfo">
+
+    <div>
+        <mat-list>
+            <mat-list-item>
+                <mat-icon [ngClass]="{
+                'card-icon_alive': character.status === 'Alive',
+                'card-icon_dead': character.status === 'Dead',
+                'card-icon_unknown': character.status === 'unknown'
+              }" matListItemIcon>circle</mat-icon>
+                <h1 matListItemTitle>
+                    <span class="card-status">{{ character.status }}</span> |
+                    {{ character.name }}
+                </h1>
+            </mat-list-item>
+        </mat-list>
+        <div class="card-container">
+            <img [src]="character.image" alt="" />
+        </div>
+    </div>
+    <div class="card-table card-container">
+        <h3>Last Known Location:</h3>
+        <p>{{ character.location.name }}</p>
+
+        <h3>Gender:</h3>
+        <p>{{ character.gender }}</p>
+
+        <h3>Species:</h3>
+        <p>{{ character.species }}</p>
+
+        <h3>Number Of Episodes:</h3>
+        <p>{{ character.episode.length }}</p>
+    </div>
+</section>
